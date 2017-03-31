@@ -1,0 +1,34 @@
+.button
+	position relative
+	padding 22px 20px
+	display inline-block
+	width 100%
+	font-size 16px
+	font-weight 700
+	line-height 1
+	text-align center
+	text-transform uppercase
+	vertical-align bottom
+	text-decoration none
+	cursor pointer
+	user-select none
+	background-color transparent
+	border none
+	border-radius 100px
+	box-shadow 0 5px #000
+	transform translateY(0) translateZ(0)
+	transition .2s ease-out 0s
+	transition-property background-color box-shadow
+	backface-visibility hidden
+	will-change background-color box-shadow
+
+	&:hover
+		transform translateY(2px)
+		box-shadow 0 3px #000
+
+		span
+			transform translate(3px)
+
+	&:active
+		transform translateY(5px)
+		box-shadow 0 0 #000

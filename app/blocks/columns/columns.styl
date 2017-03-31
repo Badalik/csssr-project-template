@@ -1,0 +1,77 @@
+.columns
+
+	&:after
+		display table
+		clear both
+		content ''
+
+	&_center
+
+		.col
+			margin-right auto
+			margin-left auto
+			float none
+
+	&_table
+		margin-left 0
+		display table
+		width 100%
+
+		.col
+			padding-left 0
+			display table-cell
+			float none
+			vertical-align middle
+
+			&:first-child
+				padding-left 0
+
+			&:last-child
+				padding-right 0
+
+.col
+	padding 0 15px
+	float left
+	+below('l')
+		float none
+
+	&:after
+		display table
+		clear both
+		content ''
+
+	&_size
+
+		&_l
+			width 760px
+			+at('xl')
+				width 640px
+
+		&_m
+			width 570px
+			+at('xl')
+				width 480px
+
+		&_s
+			width 380px
+			+at('xl')
+				width 320px
+
+		&_xs
+			width 190px
+			+at('xl')
+				width 160px
+
+		for num in (1..12)
+
+			&_{num}
+				width 95px*num
+				+at('xl')
+					width 80px*num
+				+at('l')
+					width 100%
+				+below('l')
+					width 100%
+
+	&_right
+		text-align right

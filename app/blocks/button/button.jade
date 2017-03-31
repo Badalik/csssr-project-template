@@ -1,0 +1,8 @@
+mixin button(tag)
+
+	if tag
+		+b(tag).button&attributes(attributes)
+			block
+	else
+		+b.button&attributes(attributes)
+			block
