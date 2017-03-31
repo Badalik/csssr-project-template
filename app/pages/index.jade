@@ -1,6 +1,17 @@
 extends /blocks/layout-default/layout-default
+include ../blocks/container/container
+include ../blocks/columns/columns
+include ../blocks/list/list
 
 block head
 	- var pageTitle = 'CSSSR Project Template';
+	- var pageMod = '';
 
 block content
+	.grid__row
+		+container()
+			+columns()
+				+col(12)
+					+list([
+						['Страница', 'main.html']
+					])

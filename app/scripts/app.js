@@ -13,4 +13,3 @@ svg4everybody();
 addPadding();
 window.addEventListener('load', addPadding);
 window.addEventListener('resize', addPadding);
-
