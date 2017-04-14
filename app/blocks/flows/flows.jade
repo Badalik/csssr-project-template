@@ -1,0 +1,8 @@
+mixin flows()
+	+b.flows&attributes(attributes)
+		block
+
+mixin flow(active)
+	+b.flow&attributes(attributes)(style=active ? 'display: block' : false)
+		form(method='post' action='')
+			block

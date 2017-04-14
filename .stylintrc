@@ -66,6 +66,7 @@
 		"flex-order",
 		"flex-pack",
 		"flex-align",
+		"flex-shrink",
 
 		"box-sizing",
 		"width",
@@ -192,6 +193,8 @@
 		"box-shadow",
 		"box-decoration-break",
 
+		"appearance",
+
 		"transition",
 		"transition-duration",
 		"transition-delay",
@@ -207,6 +210,7 @@
 		"animation-delay",
 		"animation-iteration-count",
 		"animation-direction",
+		"animation-fill-mode",
 		"backface-visibility",
 		"will-change"
 	],
