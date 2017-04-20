@@ -142,6 +142,7 @@
 		"nav-left",
 
 		"color",
+		"fill",
 		"background",
 		"background-color",
 		"background-image",

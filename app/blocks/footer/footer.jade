@@ -1,3 +1,5 @@
+include ../terms/terms
+
 mixin footer()
 	+b#js-footer.footer&attributes(attributes)
-		block
+		+terms()
