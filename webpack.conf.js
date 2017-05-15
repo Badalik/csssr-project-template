@@ -35,7 +35,7 @@ export default function makeWebpackConfig({
 		bail: false,
 		profile: true,
 		output: {
-			path: path.resolve('./dist/assets/scripts/'),
+			path: path.resolve('./dist/scripts/'),
 			filename: 'app.min.js',
 			pathinfo: false
 		},

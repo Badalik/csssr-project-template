@@ -12,7 +12,7 @@ html
 	+page(class=pageMod ? '_' + pageMod : '')
 		#js-wrapper.grid__wrapper
 			+header()
-			.grid__content
+			#js-content.grid__content
 				block content
 			+footer()
 			+scripts(['app.min.js'])
