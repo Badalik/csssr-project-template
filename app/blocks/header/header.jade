@@ -1,3 +1,5 @@
+include ../container/container
+
 mixin header()
 	+b#js-header.header&attributes(attributes)
-		block
+		+container()

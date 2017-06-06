@@ -40,12 +40,12 @@ head
 
 	//- http://realfavicongenerator.net/faq#why_ico_not_declared
 
-	link(rel='shortcut icon' href='favicon.ico')
+	link(rel='shortcut icon' href=root+'images/favicon.ico')
 
 	block head
 	title= pageTitle || ''
 	meta(name='description' content=pageDescription || '')
 	meta(name='keywords' content=pageKeywords || '')
 
-	link(href='styles/app.min.css' rel='stylesheet')
+	link(href=root+'styles/app.min.css' rel='stylesheet')
 	link(href='https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic-ext,latin-ext' rel='stylesheet')

@@ -2,7 +2,6 @@
 	position relative
 	padding 22px 20px
 	display inline-block
-	width 100%
 	font-size 16px
 	font-weight 700
 	line-height 1
@@ -18,9 +17,9 @@
 	box-shadow 0 5px #000
 	transform translateY(0) translateZ(0)
 	transition .2s ease-out 0s
-	transition-property background-color box-shadow
+	transition-property background-color, box-shadow
 	backface-visibility hidden
-	will-change background-color box-shadow
+	will-change background-color, box-shadow
 
 	&:hover
 		transform translateY(2px)
@@ -32,3 +31,7 @@
 	&:active
 		transform translateY(5px)
 		box-shadow 0 0 #000
+
+	&_full
+		width 100%
+		min-width 100%
