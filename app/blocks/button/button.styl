@@ -17,19 +17,19 @@
 	box-shadow 0 5px #000
 	transform translateY(0) translateZ(0)
 	transition .2s ease-out 0s
-	transition-property background-color, box-shadow
+	transition-property box-shadow, transform
 	backface-visibility hidden
-	will-change background-color, box-shadow
+	will-change box-shadow, transform
 
 	&:hover
-		transform translateY(2px)
+		transform translateZ(0) translateY(2px)
 		box-shadow 0 3px #000
 
 		span
-			transform translate(3px)
+			transform translateZ(0) translateX(3px)
 
 	&:active
-		transform translateY(5px)
+		transform translateZ(0) translateY(5px)
 		box-shadow 0 0 #000
 
 	&_full
