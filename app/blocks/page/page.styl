@@ -27,7 +27,19 @@ html
 		+at('s')
 			padding-bottom 170px
 
+		.page_center &
+
+			@supports (display: flex)
+				display flex
+				justify-content flex-start
+				flex-direction column
+
+		.page_state_overflow &
+			display block
+
 	&__content
+		margin-top auto
+		margin-bottom auto
 		padding-top 20px
 		padding-bottom 20px
 

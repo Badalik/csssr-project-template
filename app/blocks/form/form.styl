@@ -1,2 +1,127 @@
 .form
-	display block
+	position relative
+	z-index 1
+	padding 165px 100px 40px
+	background-color $text
+	box-shadow 0 20px 17px 0 rgba(0, 0, 0, .3)
+	+at('m')
+		padding 120px 33px 33px
+	+below($m-width)
+		padding 100px 20px 22px
+
+	&:before
+		position absolute
+		z-index -1
+		top 10px
+		right 10px
+		left 10px
+		bottom 10px
+		content ''
+		border 3px solid #fff
+		+below($m-width)
+			top 7px
+			right 7px
+			left 7px
+			bottom 7px
+
+	&__title
+		margin-bottom 15px
+		font-size 24px
+		line-height 1.25
+		text-align center
+		color #fff
+		+below('m')
+			font-size 20px
+			line-height 1.15
+		+below($m-width)
+			margin-bottom 10px
+
+	&__inner
+		display table
+		width 100%
+		+below('m')
+			display block
+
+	&__items
+	&__button
+		display table-cell
+		vertical-align bottom
+		+below('m')
+			display block
+
+	&__button
+		padding-bottom 3px
+		width 230px
+		+below('m')
+			margin-top 10px
+			padding-bottom 0
+			width 100%
+
+	&__items
+		padding-right 20px
+		+below('m')
+			padding-right 0
+
+	&__item
+		margin-bottom 15px
+		color #333
+		+below($m-width)
+			margin-bottom 10px
+
+		&:last-child
+			margin-bottom 0
+
+		&_center
+			text-align center
+
+	&__text
+		margin-top 15px
+		font-size 16px
+		line-height 1.25
+		text-align center
+		color #fff
+
+	&__link
+		font-size 18px
+		line-height 1.25
+		text-decoration none
+		color rgba(#fff, .7)
+		transition .2s color ease-out 0s
+
+		&:hover
+			color #fff
+
+	&__instruction
+		font-size 24px
+		line-height 1.25
+		text-align center
+		color #fff
+		+below('m')
+			font-size 18px
+
+		span
+		b
+		em
+		i
+			text-transform uppercase
+			color #333
+
+	&__spinner
+		margin-right auto
+		margin-bottom 20px
+		margin-left auto
+		width 76px
+		height 76px
+		background-image url(../images/loader.svg)
+		background-repeat no-repeat
+		background-position center
+		background-size 100%
+		transform rotate(0deg)
+		animation load-linear-circles 1.8s infinite ease
+
+		+below($m-width)
+			margin-bottom 10px
+
+@keyframes load-linear-circles
+	100%
+		transform rotate(360deg)

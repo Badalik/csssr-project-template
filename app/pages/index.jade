@@ -4,8 +4,10 @@ include ../blocks/columns/columns
 include ../blocks/list/list
 
 block head
+	- var production = false;
+	- var root = '';
 	- var pageTitle = 'CSSSR Project Template';
-	- var pageMod = '';
+	- var pageMod = 'center';
 
 block content
 	.grid__row

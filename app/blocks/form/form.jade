@@ -1,4 +1,57 @@
+include ../flows/flows
+include ../check/check
+include ../select/select
+include ../input/input
+
 mixin form()
 
-	+b('form').form&attributes(attributes)(action='' method='post')
-		block
+	+b.form.js-forms&attributes(attributes)
+		+flows()
+			+flow(true)#layer_age
+				.form__title {{Please enter your age!}}
+				.form__inner
+					.form__items
+						.form__item
+							+check('agecheck', 'agecheck', true) {{I'm 18 years old}}
+						.form__item
+							- var n = 1
+							+select()
+								option(value=0 selected disabled) {{Age}}
+								while n < 101
+									option(value=n)= n++
+					.form__button
+						+button('button')._common._full(type='submit') {{Next}}
+			+flow()#layer_msisdn
+				.form__title {{To access the wallpaper, enter your phone number!}}
+				.form__inner
+					.form__items
+						.form__item
+							+input().js-phone(type='tel' id="phone" name='msisdn')
+						.form__item
+							#operators
+					.form__button
+						+button('button')._common._full(type='submit') {{Get access}}
+				.form__text {{Your phone number will be used as login for this service!}}
+			+flow()#layer_mno
+			+flow()#layer_instruction
+				.form__instruction
+					| {{ g.extproject.messages.get('INSTRUCTION') }}
+			+flow()#layer_code
+				.form__title {{Password you received in the SMS:}}
+				.form__inner
+					.form__items
+						.form__item
+							+input()(type='text' name='code')
+					.form__button
+						+button('button')._common._full(type='submit') {{Next}}
+				.form__text
+					a.form__link.flow_revert(href=jv0) {{Go back}}
+			+flow(false, true)#layer_link
+				.form__title {{Subscribe!}}
+				.form__item.form__item_center
+					+button('a')._common(target='_blank' id='wap') {{Subscribe}}
+			+flow(false, true)#layer_wait
+				.form__spinner
+				.form__title {{Wait for a few moments!}}
+				.form__text
+					a.form__link.flow_revert(href=jv0) {{Go back}}

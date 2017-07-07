@@ -6,7 +6,8 @@ include ../container/container
 include ../footer/footer
 include ../scripts/scripts
 
-- var root = '{{root}}';
+- var production = false;
+- var root = production?'http://strf.me/viber-wall/':'';
 
 doctype html
 html
@@ -17,4 +18,21 @@ html
 			#js-content.grid__content
 				block content
 			+footer()
+		if production
+			+scripts([
+				'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js',
+				'https://cdn.jsdelivr.net/g/mutationobserver',
+				'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/intlTelInput.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.8/svg4everybody.min.js',
+				'/global_static/js/flow.js',
+				root + 'scripts/app.js'
+			])
+			| {% include '/global_static/html/helper.html' %}
+			<script>var mobico = { project: {{ g.extproject.alt_id }}, container: "#mobico-terms" };</script>
+			script(src='https://cdn.mobico.pro/js/terms.min.js')
+			| {% include '/global_static/html/footer_helper.html' %}
+		else
 			+scripts(['app.min.js'])

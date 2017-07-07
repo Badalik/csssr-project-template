@@ -1,0 +1,55 @@
+.check
+	position relative
+	display inline-block
+	user-select none
+
+	&__input
+		position absolute
+		visibility hidden
+		opacity 0
+
+		&:checked + .check__label .check__checker:after
+			opacity 1
+			transform rotate(40deg) scale(1)
+
+	&__label
+		display inline-block
+		cursor pointer
+
+	&__checker-wrapper
+	&__title
+		display table-cell
+		vertical-align middle
+
+	&__checker
+		position relative
+		width 25px
+		height 25px
+		background-image linear-gradient(to bottom, #ffffff, #e0e0e0)
+		border 1px solid #e0e0e0
+		border-radius 3px
+
+		&:after
+			position absolute
+			top 0
+			left 9px
+			bottom 3px
+			margin auto
+			width 4px
+			height 10px
+			content ''
+			border-right 2px solid #333
+			border-bottom 2px solid #333
+			opacity 0
+			transform rotate(40deg) scale(3)
+			transition .125s ease-out 0s
+			transition-property opacity, transform
+			backface-visibility hidden
+			will-change opacity, transform
+
+	&__title
+		padding-left 10px
+		width 100%
+		font-size 16px
+		line-height 1.2
+		color #fff
