@@ -1,0 +1,19 @@
+mixin tabs(items)
+
+	- items = items || false
+
+	+b.tabs&attributes(attributes)
+		if items
+
+			each item, i in items
+
+				- active = i===0
+
+				+tab(active)= item
+
+		block
+
+mixin tab(active)
+
+	+b.js-tab.tab(class=active ? '_state_active' : '')
+		block

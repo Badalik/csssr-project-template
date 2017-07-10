@@ -1,0 +1,23 @@
+.tabs
+	position relative
+
+.tab
+	position absolute
+	top 0
+	left 0
+	visibility hidden
+	width 100%
+	pointer-events none
+	opacity 0
+	transform translateZ(0)
+	transition .2s ease-out 0s
+	transition-property visibility, opacity
+	backface-visibility hidden
+	will-change visibility, opacity
+
+	&_state_active
+		position relative
+		z-index 1
+		visibility visible
+		pointer-events auto
+		opacity 1
