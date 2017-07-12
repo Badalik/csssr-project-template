@@ -25,12 +25,20 @@
 		padding-right 15px
 		padding-left 15px
 
+	span
+		display inline-block
+		transform translateY(0) translateZ(0)
+		transition .2s ease-out 0s
+		transition-property transform
+		backface-visibility hidden
+		will-change transform
+
 	&:hover
 		transform translateZ(0) translateY(2px)
 		box-shadow 0 3px #000
 
 		span
-			transform translateZ(0) translateX(3px)
+			transform translateZ(0) translateY(1px)
 
 	&:active
 		transform translateZ(0) translateY(5px)
