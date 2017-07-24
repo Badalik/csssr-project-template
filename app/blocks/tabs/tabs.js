@@ -10,7 +10,6 @@ class Tabs {
 			this.tab.eq(index).addClass(this.tabActCl).siblings().removeClass(this.tabActCl);
 			this.index = index;
 		} else if (this.index < this.length - 1) {
-			console.log('yes');
 			this.tab.eq(this.index).removeClass(this.tabActCl).next().addClass(this.tabActCl);
 			this.index++;
 		} else {
