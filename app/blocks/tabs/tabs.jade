@@ -15,5 +15,5 @@ mixin tabs(items)
 
 mixin tab(active)
 
-	+b.js-tab.tab(class=active ? '_state_active' : '')
+	+b.js-tab.tab&attributes(attributes)(class=active ? '_state_active' : '')
 		block

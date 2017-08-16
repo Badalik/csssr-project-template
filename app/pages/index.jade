@@ -9,11 +9,17 @@ block head
 	- var pageTitle = 'CSSSR Project Template';
 	- var pageMod = 'center';
 
+block scripts
+	+scripts([
+		'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js',
+		'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/intlTelInput.min.js',
+		'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js'
+	])
+
 block content
-	.grid__row
-		+container()
-			+columns()
-				+col(12)
-					+list([
-						['Главная cтраница', 'main.html']
-					])
+	+container()
+		+columns()
+			+col(12)
+				+list([
+					['Главная cтраница', 'main.html']
+				])

@@ -1,0 +1,17 @@
+extends /blocks/layout-default/layout-default
+include ../blocks/container/container
+
+block head
+	- var pageTitle = '{{Хиромантия – гадание по руке}}';
+	- var pageMod = '';
+
+block scripts
+	+scripts([
+		'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/intlTelInput.min.js',
+		root + 'success.js'
+	])
+
+block content
+	+container()
+		.grid__title {{Wait for a few moments!}}
+		.form__spinner

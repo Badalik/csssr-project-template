@@ -13,6 +13,11 @@ doctype html
 html
 	include ../head/head
 	+page(class=pageMod ? '_' + pageMod : '')
+		if production
+			<!-- Google Tag Manager (noscript) -->
+			noscript
+				| <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVKV4L" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+			<!-- End Google Tag Manager (noscript) -->
 		#js-wrapper.grid__wrapper
 			+header()
 			#js-content.grid__content
@@ -21,18 +26,14 @@ html
 		if production
 			+scripts([
 				'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
-				'https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js',
-				'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js',
-				'https://cdn.jsdelivr.net/g/mutationobserver',
-				'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/intlTelInput.min.js',
-				'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js',
-				'https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.8/svg4everybody.min.js',
-				'/global_static/js/flow.js',
+				'https://cdn.jsdelivr.net/g/mutationobserver'
+			])
+			block scripts
+			+scripts([
+				'https://cdn.mobico.pro/js/sdk.min.js',
+				'/_common/sms-link2.js',
+				root + 'scripts/main.js',
 				root + 'scripts/app.js'
 			])
-			| {% include '/global_static/html/helper.html' %}
-			<script>var mobico = { project: {{ g.extproject.alt_id }}, container: "#mobico-terms" };</script>
-			script(src='https://cdn.mobico.pro/js/terms.min.js')
-			| {% include '/global_static/html/footer_helper.html' %}
 		else
 			+scripts(['app.min.js'])
