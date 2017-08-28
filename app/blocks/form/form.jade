@@ -15,63 +15,59 @@ mixin form(form)
 
 	//+flows()
 		+flow()#layer_age
-			.grid__title {{Please enter your age!}}
-			.grid__form
-				.form__items
-					.form__item.form__item_input
-						+input()(type='text')
-					.form__item.form__item_input
-						+check('agecheck', 'agecheck', true) {{I'm 18 years old}}
-					.form__item.form__item_input
-						- var n = 1
-						+select()
-							option(value=0 selected disabled) {{Age}}
-							while n < 101
-								option(value=n)= n++
-				.form__button
-					+button('button')._common._green(type='submit') {{Next}}
-		+flow()#layer_msisdn
-			.grid__title {{Enter your phone number}}
-			.grid__form
-				.form__items
-					.form__item.form__item_input
-						.form__item-label#msisdn_error(style='display:none; color:red') {{Your phone is incorrect!}}
-						+input().js-input_set_geo(type='tel' id="phone" name='msisdn')
-				.form__button
-					+button('button')._common._green(type='submit') {{Get access}}
-				.form__text
-					| {{Your phone number will be used as login to get unlimited access to the
-					| service}}
+			.form__title {{Please enter your age!}}
+			.form__items
+				.form__item
+					+input()(type='text')
+				.form__item
+					+check('agecheck', 'agecheck', true) {{I'm 18 years old}}
+				.form__item
+					- var n = 1
+					+select()
+						option(value=0 selected disabled) {{Age}}
+						while n < 101
+							option(value=n)= n++
+			.form__button
+				+button('button')._full(type='submit') {{Next}}
+		+flow(true)#layer_msisdn
+			.form__title {{Enter your phone number}}
+			.form__items
+				.form__item
+					.form__item-label#msisdn_error(style='display:none; color:red') {{Your phone is incorrect!}}
+					+input().js-input_set_geo(type='tel' id="phone" name='msisdn')
+			.form__button
+				+button('button')._full(type='submit') {{Get access}}
+			.form__text
+				| {{Your phone number will be used as login to get unlimited access to the
+				| service}}
 		+flow()#layer_code
-			.grid__title {{Password you received in the SMS}}
-			.grid__form
-				.form__items
-					.form__item.form__item_input
-						.form__item-label#code_error(style='display:none; color:red') {{Your code is incorrect!}}
-						+input()(type='text' name='code')
-				.form__button
-					+button('button')._common._green(type='submit') {{Next}}
-				.form__text
-					button.form__link.flow_revert(type='submit') {{Go back}}
+			.form__title {{Password you received in the SMS}}
+			.form__items
+				.form__item
+					.form__item-label#code_error(style='display:none; color:red') {{Your code is incorrect!}}
+					+input()(type='text' name='code')
+			.form__button
+				+button('button')._full(type='submit') {{Next}}
+			.form__text
+				button.form__link.flow_revert(type='submit') {{Go back}}
 		+flow()#layer_instruction
 			.form__instruction
 				| {{Отправьте SMS с кодом #[code CODE #[span.mobico-token]] на номер #[code 000000]}}
 			.form__text
 				a#mobile_sms(style='display:none')
 		+flow(false, true)#layer_mno
-			.grid__title {{Select your operator:}}
+			.form__title {{Select your operator:}}
 		+flow(false, true)#layer_link
-			.grid__title {{Subscribe!}}
 			.form__button
-				+button('a')._common._green(target='_blank' id='wap') {{Subscribe}}
+				+button('a')._full(target='_blank' id='wap') {{Subscribe}}
 		+flow(false, true)#layer_prewap
-			.grid__title {{Цена на услуги…}}
+			.form__title {{Цена на услуги…}}
 			.form__text
 				a#prewap.form__link(href=jv0) {{Оплатить через мобильного оператора}}
 			.form__text#flow_terms
 				+check('flow-terms', 'flow-terms', true) {{Я прочитал и согласен с #[a#terms(target="_blank") правилами испольования}}
 		+flow(false, true)#layer_wait
-			.grid__title {{Wait for a few moments!}}
+			.form__title.form__title_center {{Wait for a few moments!}}
 			.form__spinner
 		+flow(false, true)#layer_error
-			.grid__title {{К сожалению, эта услуга не доступна для Вас!}}
+			.form__title {{К сожалению, эта услуга не доступна для Вас!}}
