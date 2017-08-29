@@ -1,9 +1,40 @@
 .form
 
+	&_center
+		text-align center
+
+	&__title
+		margin-bottom 13px
+		font-size 17px
+		font-weight 500
+		line-height 1.38
+		color $text2
+
+		&_center
+			text-align center
+
+	&__items
+		width 210px
+		+at('l')
+			margin-right 23px
+			display inline-block
+			vertical-align top
+		+at('m')
+			margin-right 0
+			display block
+
+		^[0]_center &
+			margin-right auto
+			margin-left auto
+			+at('l')
+				margin-right 23px
+			+at('m')
+				margin-right 0
+
 	&__item
-		margin-bottom 20px
+		margin-bottom 13px
 		+below('m')
-			margin-bottom 15px
+			margin-bottom 10px
 
 		&:last-child
 			margin-bottom 0
@@ -12,67 +43,63 @@
 			text-align center
 
 	&__button
-		margin-top 15px
-		text-align center
+		margin-top 13px
+		width 210px
+		+at('l')
+			margin-top 0
+			display inline-block
+			vertical-align top
 		+below('m')
-			margin-top 10px
+			margin-top 14px
+		+at('m')
+			margin-top 14px
+			display block
+
+		^[0]_center &
+			margin-right auto
+			margin-left auto
 
 	&__text
-		margin-top 20px
-		font-size 18px
-		line-height 1.25
-		text-align center
-		color #fff
+		margin-top 15px
+		font-size 14px
+		line-height 1.38
 
 	&__link
-		font-size 18px
-		line-height 1.25
+		font-size 15px
+		font-weight 500
+		line-height 1.38
 		text-decoration none
-		color rgba(#fff, .7)
-		background transparent
+		color $blue
+		background none
 		border none
 		box-shadow none
 		transition .2s color ease-out 0s
 
 		&:hover
-			color #fff
+			color rgba($blue, .8)
 
 	&__instruction
-		font-size 26px
-		line-height 1.25
-		text-align center
-		color #fff
+		font-size 18px
+		line-height 1.38
 		+below('m')
-			font-size 18px
+			font-size 17px
 
 		span
 		b
 		em
 		i
-			font-weight 700
+			font-weight 500
 			text-transform uppercase
 
 		code
-			font-weight 700
-
-	&__message
-		position relative
-		margin-right auto
-		margin-bottom 25px
-		margin-left auto
-		width 94px
-		height 43px
-		background-image url(../images/message.svg)
-		background-repeat no-repeat
-		background-position center
-		background-size 100%
+			font-weight 500
 
 	&__spinner
-		margin-top 25px
+		margin-top 15px
 		margin-right auto
 		margin-left auto
-		width 76px
-		height 76px
+		width 40px
+		height 40px
 		background-image url(../images/spinner.svg)
 		background-repeat no-repeat
 		background-position center

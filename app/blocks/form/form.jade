@@ -52,9 +52,9 @@ mixin form(form)
 				button.form__link.flow_revert(type='submit') {{Go back}}
 		+flow()#layer_instruction
 			.form__instruction
-				| {{Отправьте SMS с кодом #[code CODE #[span.mobico-token]] на номер #[code 000000]}}
+				| {{Отправьте SMS с кодом}} #[code {{Текст сообщения click2sms}} #[span.mobico-token]] {{на номер}} #[code {{Короткий номер click2sms}}]
 			.form__text
-				a#mobile_sms(style='display:none')
+				a#mobile_sms(href='sms:{{Короткий номер click2sms}}?body={{Текст сообщения click2sms}}' style='display:none')
 		+flow(false, true)#layer_mno
 			.form__title {{Select your operator:}}
 		+flow(false, true)#layer_link

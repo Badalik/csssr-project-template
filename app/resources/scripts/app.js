@@ -2,6 +2,8 @@
 
 $(function () {
 	var App = function () {
+		var App = this;
+
 		this.Height = function () {
 			var height = this;
 			this.wrapper = document.getElementById('js-wrapper');
@@ -92,13 +94,26 @@ $(function () {
 				return false;
 			}
 		};
+
+		this.Form = function () {
+			this.wrapper = $('.js-form');
+			this.phone = new App.IntlTelInput(this.wrapper.find('.js-input_set_geo'));
+		};
+
+		this.Form.prototype = {
+			init: function () {
+				this.phone.init();
+			}
+		};
 	};
 
 	App.prototype = {
 		init: function () {
 			this.height = new this.Height();
+			this.form = new this.Form();
 
 			this.height.init();
+			this.form.init();
 		}
 	};
 
