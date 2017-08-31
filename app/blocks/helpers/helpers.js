@@ -1,5 +1,5 @@
 // import $ from 'jquery';
-import 'classlist-polyfill';
+// import 'classlist-polyfill';
 import 'mutationobserver-shim';
 
 class Height {

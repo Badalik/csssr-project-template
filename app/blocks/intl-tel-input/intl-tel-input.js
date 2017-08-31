@@ -13,6 +13,7 @@ class IntlTelInput {
 	init() {
 		this.input.intlTelInput({
 			nationalMode: false,
+			// initialCountry: geo,
 			utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/utils.js'
 		});
 		this.events();

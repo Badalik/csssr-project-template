@@ -18,11 +18,11 @@ mixin form(form)
 			.grid__title {{Please enter your age!}}
 			.grid__form
 				.form__items
-					.form__item.form__item_input
+					.form__item
 						+input()(type='text')
-					.form__item.form__item_input
+					.form__item
 						+check('agecheck', 'agecheck', true) {{I'm 18 years old}}
-					.form__item.form__item_input
+					.form__item
 						- var n = 1
 						+select()
 							option(value=0 selected disabled) {{Age}}
@@ -34,7 +34,7 @@ mixin form(form)
 			.grid__title {{Enter your phone number}}
 			.grid__form
 				.form__items
-					.form__item.form__item_input
+					.form__item
 						.form__item-label#msisdn_error(style='display:none; color:red') {{Your phone is incorrect!}}
 						+input().js-input_set_geo(type='tel' id="phone" name='msisdn')
 				.form__button
@@ -46,7 +46,7 @@ mixin form(form)
 			.grid__title {{Password you received in the SMS}}
 			.grid__form
 				.form__items
-					.form__item.form__item_input
+					.form__item
 						.form__item-label#code_error(style='display:none; color:red') {{Your code is incorrect!}}
 						+input()(type='text' name='code')
 				.form__button
