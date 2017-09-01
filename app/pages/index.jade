@@ -1,11 +1,8 @@
 extends /blocks/layout-default/layout-default
 include ../blocks/container/container
-include ../blocks/columns/columns
 include ../blocks/list/list
 
 block head
-	- var production = false;
-	- var root = '';
 	- var pageTitle = 'CSSSR Project Template';
 	- var pageMod = 'center';
 
@@ -18,8 +15,6 @@ block scripts
 
 block content
 	+container()
-		+columns()
-			+col(12)
-				+list([
-					['Главная cтраница', 'main.html']
-				])
+		+list([
+			['Главная cтраница', 'main.html']
+		])
