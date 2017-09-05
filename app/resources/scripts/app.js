@@ -97,12 +97,30 @@ $(function () {
 
 		this.Form = function () {
 			this.wrapper = $('.js-form');
+			this.flowForm = this.wrapper.find('.js-flow-form');
 			this.phone = new App.IntlTelInput(this.wrapper.find('.js-input_set_geo'));
 		};
 
 		this.Form.prototype = {
+			events: function () {
+				var form = this;
+
+				this.flowForm.on('submit', function () {
+					if (form.phone.input.val().trim()) {
+						mbc.tag('030 Пользователь указал номер телефона');
+						if (form.phone.valid()) {
+							mbc.tag('034 Пользователь указал верно номер телефона');
+						} else {
+							mbc.tag('033 Пользователь указал неверно номер телефона');
+						}
+					} else {
+						mbc.tag('031 Пользователь не указал номер телефона');
+					}
+				});
+			},
 			init: function () {
 				this.phone.init();
+				this.events();
 			}
 		};
 	};
