@@ -13,6 +13,9 @@
 		&_center
 			text-align center
 
+		&_mr_0
+			margin-bottom 0
+
 	&__items
 		width 210px
 		+at('l')
@@ -43,6 +46,8 @@
 			margin-bottom 5px
 			font-size 16px
 			line-height 1.1
+			+below('m')
+				font-size 15px
 
 		&_center
 			text-align center
@@ -65,9 +70,15 @@
 			margin-left auto
 
 	&__text
-		margin-top 15px
+		margin-top 20px
 		font-size 14px
 		line-height 1.38
+
+		&_mr_0
+			margin-top 0
+
+		#mobile_sms
+			margin-top 20px
 
 	&__link
 		font-size 15px
@@ -110,7 +121,12 @@
 		background-position center
 		background-size 100%
 		transform rotate(0deg)
-		animation load-linear-circles 1.8s infinite ease
+		animation-name spinner
+		animation-duration 1.8s
+		animation-timing-function linear
+		animation-iteration-count infinite
+		animation-direction normal
+		animation-fill-mode forwards
 
 @keyframes load-linear-circles
 	100%

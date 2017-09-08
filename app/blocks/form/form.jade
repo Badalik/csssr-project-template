@@ -53,7 +53,7 @@ mixin form(form)
 			+flow()#layer_instruction
 				.form__instruction
 					| {{Отправьте SMS с кодом}} #[code {{Текст сообщения click2sms}} #[span.mobico-token]] {{на номер}} #[code {{Короткий номер click2sms}}]
-				.form__text
+				.form__text.form__text_mr_0
 					a#mobile_sms(href='sms:{{Короткий номер click2sms}}?body={{Текст сообщения click2sms}}' style='display:none')
 			+flow(false, true)#layer_mno
 				.form__title {{Select your operator:}}
@@ -70,4 +70,4 @@ mixin form(form)
 				.form__title.form__title_center {{Wait for a few moments!}}
 				.form__spinner
 			+flow(false, true)#layer_error
-				.form__title {{К сожалению, эта услуга не доступна для Вас!}}
+				.form__title.form__title_mr_0 {{К сожалению, эта услуга не доступна для Вас!}}
