@@ -122,7 +122,10 @@ $(function () {
 				});
 			},
 			init: function () {
-				this.phone.init();
+				if (this.phone.length) {
+					this.phone.init();
+				}
+
 				this.events();
 			}
 		};
