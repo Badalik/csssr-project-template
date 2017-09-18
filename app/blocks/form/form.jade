@@ -54,7 +54,7 @@ mixin form(form)
 				.form__instruction
 					| {{Отправьте SMS с кодом}} #[code {{Текст сообщения click2sms}} #[span.mobico-token]] {{на номер}} #[code {{Короткий номер click2sms}}]
 				.form__text.form__text_mr_0
-					a#mobile_sms(href='sms:{{Короткий номер click2sms}}?body={{Текст сообщения click2sms}}' style='display:none')
+					a#mobile_sms.form__link(href='sms:{{Короткий номер click2sms}}?body={{Текст сообщения click2sms}}' style='display:none')
 			+flow(false, true)#layer_mno
 				.form__title {{Select your operator:}}
 			+flow(false, true)#layer_link
@@ -65,7 +65,7 @@ mixin form(form)
 				.form__text
 					a#prewap.form__link(href=jv0) {{Оплатить через мобильного оператора}}
 				.form__text#flow_terms
-					+check('flow-terms', 'flow-terms', true) {{Я прочитал и согласен с #[a#terms(target="_blank") правилами испольования}}
+					+check('flow-terms', 'flow-terms', true) {{Я прочитал и согласен с #[a#terms(target="_blank") правилами использования]}}
 			+flow(false, true)#layer_wait
 				.form__title.form__title_center {{Wait for a few moments!}}
 				.form__spinner
