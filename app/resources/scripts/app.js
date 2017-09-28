@@ -122,7 +122,7 @@ $(function () {
 				});
 			},
 			init: function () {
-				if (this.phone.length) {
+				if (this.inputPhone.length) {
 					this.phone.init();
 				}
 
