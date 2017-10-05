@@ -63,7 +63,7 @@ mixin form(form)
 			+flow(false, true)#layer_prewap
 				.form__title {{Цена на услуги…}}
 				.form__text
-					a#prewap.form__link(href=jv0) {{Оплатить через мобильного оператора}}
+					a#prewap.form__link.form__link_decor(href=jv0) {{Оплатить через мобильного оператора}}
 				.form__text#flow_terms
 					+check('flow-terms', 'flow-terms', true) {{Я прочитал и согласен с #[a#terms(target="_blank") правилами использования]}}
 			+flow(false, true)#layer_wait
