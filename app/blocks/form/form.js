@@ -60,6 +60,14 @@ class Form {
 		});*/
 	}
 	init() {
+		/*this.form.each(function () {
+			$(this).validate({
+				errorClass: 'error',
+				errorPlacement() {
+					return true;
+				}
+			});
+		});*/
 		this.phone.init();
 		this.events();
 	}

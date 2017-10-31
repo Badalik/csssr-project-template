@@ -122,6 +122,15 @@ $(function () {
 				});
 			},
 			init: function () {
+				/*this.form.each(function () {
+					$(this).validate({
+						errorClass: 'error',
+						errorPlacement: function () {
+							return true;
+						}
+					});
+				});*/
+
 				if (this.inputPhone.length) {
 					this.phone.init();
 				}
