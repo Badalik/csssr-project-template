@@ -63,6 +63,8 @@
 		"clip",
 		"zoom",
 		"flex-direction",
+		"justify-content",
+        "align-items",
 		"flex-order",
 		"flex-pack",
 		"flex-align",
