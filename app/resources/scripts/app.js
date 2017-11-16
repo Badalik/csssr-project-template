@@ -60,6 +60,7 @@ $(function () {
 		this.IntlTelInput = function (input) {
 			this.input = input;
 			this.value = 0;
+			this.geo = typeof geo !== 'undefined' ? geo : '';
 			this.errorCl = 'error';
 		};
 
@@ -71,7 +72,7 @@ $(function () {
 			init: function () {
 				this.input.intlTelInput({
 					nationalMode: false,
-					// initialCountry: geo,
+					initialCountry: this.geo,
 					utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/utils.js'
 				});
 				this.events();
