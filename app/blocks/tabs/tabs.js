@@ -15,6 +15,12 @@ class Tabs {
 		} else {
 			this.onTabsEnd();
 		}
+
+		if (this.index + 1 === this.length - 1) {
+			this.onTabsPreEnd();
+		}
+	}
+	onTabsPreEnd() {
 	}
 	onTabsEnd() {
 	}
