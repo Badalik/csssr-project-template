@@ -13,61 +13,59 @@ mixin form(form)
 		else
 			block
 
-	//+form().js-form
-		+flows()
-			+flow()#layer_age
-				.form__title {{Please enter your age!}}
-				.form__items
-					.form__item
-						+input()(type='text')
-					.form__item
-						+check('agecheck', 'agecheck', true) {{I'm 18 years old}}
-					.form__item
-						- var n = 1
-						+select()
-							option(value=0 selected disabled) {{Age}}
-							while n < 101
-								option(value=n)= n++
-				.form__button
-					+button('button')._full(type='submit') {{Next}}
-			+flow(true)#layer_msisdn
-				.form__title {{Enter your phone number}}
-				.form__items
-					.form__item
-						.form__item-label#msisdn_error(style='display:none; color:red') {{Your phone is incorrect!}}
-						+input().js-input_set_geo(type='tel' id="phone" name='msisdn')
-				.form__button
-					+button('button')._full(type='submit') {{Get access}}
-				.form__text
-					| {{Your phone number will be used as login to get unlimited access to the service}}
-			+flow()#layer_code
-				.form__title {{Password you received in the SMS}}
-				.form__items
-					.form__item
-						.form__item-label#code_error(style='display:none; color:red') {{Your code is incorrect!}}
-						+input()(type='text' name='code')
-				.form__button
-					+button('button')._full(type='submit') {{Next}}
-				.form__text
-					button.form__link.flow_revert(type='submit') {{Go back}}
-			+flow()#layer_instruction
-				.form__instruction
-					| {{Отправьте SMS с кодом}} #[code {{Текст сообщения click2sms}} #[span.mobico-token]] {{на номер}} #[code {{Короткий номер click2sms}}]
-				.form__text.form__text_mr_0
-					a#mobile_sms.form__link(href='sms:{{Короткий номер click2sms}}?body={{Текст сообщения click2sms}}' style='display:none')
-			+flow(false, true)#layer_mno
-				.form__title {{Select your operator:}}
-			+flow(false, true)#layer_link
-				.form__button
-					+button('a')._full(target='_blank' id='wap') {{Subscribe}}
-			+flow(false, true)#layer_prewap
-				.form__title {{Цена на услуги…}}
-				.form__text
-					a#prewap.form__link.form__link_decor(href=jv0) {{Оплатить через мобильного оператора}}
-				.form__text#flow_terms
-					+check('flow-terms', 'flow-terms', true) {{Я прочитал и согласен с #[a#terms(target="_blank") правилами использования]}}
-			+flow(false, true)#layer_wait
-				.form__title.form__title_center {{Wait for a few moments!}}
-				.form__spinner
-			+flow(false, true)#layer_error
-				.form__title.form__title_mr_0 {{К сожалению, эта услуга не доступна для Вас!}}
+	//+flows().js-forms
+		+flow(false, true)#layer_mno
+			.form__title {{Select your operator:}}
+		+flow()#layer_msisdn
+			.form__title {{Enter your phone number}}
+			.form__items
+				.form__item
+					.form__item-label.js-form-error(style='display:none;') {{Your phone is incorrect!}}
+					.form__item-label.js-form-error-already(style='display:none;') {{Подписка на данный номер уже существует}}
+					+input().js-input_set_geo(type='tel' id="phone" name='msisdn')
+			.form__button
+				+button('button')._full(type='submit') {{Get access}}
+			.form__text
+				| {{Your phone number will be used as login to get unlimited access to the service}}
+		+flow()#layer_age
+			.form__title {{Please enter your age!}}
+			.form__items
+				.form__item
+					+input()(type='text')
+				.form__item
+					+check('agecheck', 'agecheck', true) {{I'm 18 years old}}
+				.form__item
+					- var n = 1
+					+select()
+						option(value=0 selected disabled) {{Age}}
+						while n < 101
+							option(value=n)= n++
+			.form__button
+				+button('button')._full(type='submit') {{Next}}
+		+flow(true)#layer_instruction
+			.form__message
+			.form__title Сеанс окончен!
+			.form__instruction
+				| {{Отправьте SMS с кодом}} #[code {{Текст сообщения click2sms}} #[span.mobico-token]] {{на номер}} #[code {{Короткий номер click2sms}}]
+			.form__text.form__text_mr_0
+				+button('a').mbc-click2sms(href='#') {{Отправить SMS}}
+		+flow()#layer_code
+			.form__title {{Password you received in the SMS}}
+			.form__items
+				.form__item
+					.form__item-label.js-form-error(style='display:none;') {{Your code is incorrect!}}
+					+input()(type='password' id='code' name='code' maxlength=4)
+			.form__button
+				+button('button')._full(type='submit') {{Next}}
+			.form__text
+				button.form__link.js-layer-revert(type='submit') {{Go back}}
+		+flow(false, true)#layer_wap
+			.form__button
+				+button('a')._full(target='_blank' id='wap') {{Subscribe}}
+		+flow(false, true)#layer_wait
+			.form__title {{Wait for a few moments!}}
+			.form__spinner
+		+flow(false, true)#layer_error
+			.form__title {{К сожалению, эта услуга не доступна для Вас!}}
+			.form__text
+				a.form__link.js-layer-revert(href='/') {{Go back}}
