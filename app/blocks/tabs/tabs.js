@@ -12,7 +12,9 @@ class Tabs {
 		} else if (this.index < this.length - 1) {
 			this.tab.eq(this.index).removeClass(this.tabActCl).next().addClass(this.tabActCl);
 			this.index++;
-		} else {
+		}
+
+		if (this.index === this.length - 1) {
 			this.onTabsEnd();
 		}
 
