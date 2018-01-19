@@ -1,7 +1,12 @@
-mixin check(id, name, checkbox, required)
-	+b.check&attributes(attributes)
-		input.check__input(type=checkbox?'checkbox':'radio' id='check-'+id value=id name=name?name:false)
-		label.check__label(for='check-'+id)
+mixin check(name, value, isRadio)
+
+	- id = value?'check-'+name+'-'+value:'check-'+name
+	- value = value?value:''
+	- type = isRadio?'radio':'checkbox'
+
+	+b.check
+		input.check__input(type=type id=id name=name value=value)&attributes(attributes)
+		label.check__label(for=id)
 			.check__checker-wrapper
 				.check__checker
 			.check__title
