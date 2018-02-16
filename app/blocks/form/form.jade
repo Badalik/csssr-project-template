@@ -1,9 +1,3 @@
-include ../flows/flows
-include ../check/check
-include ../select/select
-include ../input/input
-include ../button/button
-
 mixin form(form)
 
 	+b.form&attributes(attributes)
@@ -16,6 +10,10 @@ mixin form(form)
 	//+flows().js-forms
 		+flow(false, true)#layer_mno
 			.form__title {{Select your operator:}}
+			.form__mno
+				+mno([
+					['Mobitel', 'SI_MOBITEL'], ['Si.mobil', 'SI_SIMOBIL'], ['Telemach', 'SI_TELEMACH']
+				])
 		+flow()#layer_msisdn
 			.form__title {{Enter your phone number}}
 			.form__items

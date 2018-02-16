@@ -1,0 +1,12 @@
+mixin mno(items)
+
+	- items = items || []
+
+	+b.mno&attributes(attributes)
+
+		each item, i in items
+
+			.mno__item(data-mno=item[1])
+				.mno__item-image-wrapper
+					img.mno__item-image(src=root+'images/operators/'+(i+1)+'.png' alt='')
+				.mno__item-title= item[0]

@@ -1,5 +1,45 @@
 'use strict';
 
+var SMSLink = SMSLink || {},
+	replaceBody = null,
+	ver = '';
+
+SMSLink.detector = SMSLink.detector || function () {
+	var a, b, c, d = navigator.userAgent;
+	return d.match(/iPad/i) || d.match(/iPhone/i) ? (a = "iOS", c = d.indexOf("OS ")) : d.match(/Android/i) ? (a = "Android", c = d.indexOf("Android ")) : a = null, "iOS" === a && c > -1 ? b = d.substr(c + 3, 3).replace("_", ".") : "Android" === a && c > -1 ? a = d.substr(c + 8, 3) : ver = null, {
+		version: function () {
+			return b
+		}, os: function () {
+			return a
+		}, isMobile: function () {
+			return null !== a
+		}
+	};
+};
+
+SMSLink.link = SMSLink.link || function () {
+	function a() {
+		SMSLink.linkDetector || (SMSLink.linkDetector = new SMSLink.detector);
+	}
+
+	return a(), {
+		replaceAll: function () {
+			this.replaceWithSelector("[href^='sms:']")
+		}, replaceWithSelector: function (a) {
+			var elements = document.querySelectorAll(a);
+			for (var i in elements) this.replace(elements[i]);
+		}, replace: function (a) {
+			if (a.href) {
+				switch (replaceBody = !1, SMSLink.linkDetector.os()) {
+					case "iOS":
+						parseFloat(SMSLink.linkDetector.version()) <= 8 ? replaceBody = ";" : replaceBody = ";?&"
+				}
+				replaceBody && (a.href = a.href.replace(/\?body=/, replaceBody + "body="));
+			}
+		}
+	};
+};
+
 $(function () {
 	var App = function () {
 		var App = this;
@@ -65,57 +105,18 @@ $(function () {
 			}
 		};
 
-		this.IntlTelInput = function (input) {
-			this.input = input;
-			this.value = 0;
-			this.geo = typeof geo !== 'undefined' ? geo : '';
-			this.errorCl = 'error';
-		};
-
-		this.IntlTelInput.prototype = {
-			events: function () {
-				this.valid = this.valid.bind(this);
-				this.input.on('blur keyup change', this.valid);
-			},
-			init: function () {
-				this.input.intlTelInput({
-					nationalMode: false,
-					initialCountry: this.geo,
-					utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.1.0/js/utils.js'
-				});
-				this.events();
-			},
-			valid: function () {
-				if (this.input.val().trim()) {
-					if (!this.input.intlTelInput('isValidNumber')) {
-						if (event.type === 'blur' || event.type === 'change') {
-							this.value = this.input.val();
-						}
-						if (this.value) {
-							this.input.addClass(this.errorCl);
-						}
-					} else {
-						this.input.removeClass(this.errorCl);
-						return true;
-					}
-				}
-
-				return false;
-			}
-		};
-
 		this.Form = function () {
-			this.wrapper = $('.js-form');
-			this.flowForm = this.wrapper.find('.js-flow-form');
-			this.inputPhone = this.wrapper.find('.js-input_set_geo');
-			this.phone = new App.IntlTelInput(this.inputPhone);
+			this.wrapper = $('.js-forms');
+			this.form = this.wrapper.find('.js-form');
+			this.geo = typeof geo !== 'undefined' ? geo : '';
+			this.tabs = new App.Tabs(this.wrapper.find('.js-forms-tabs'));
 		};
 
 		this.Form.prototype = {
 			events: function () {
 				var form = this;
 
-				this.flowForm.on('submit', function () {
+				/*this.flowForm.on('submit', function () {
 					if ($(this).find(form.inputPhone).length) {
 						if (form.phone.input.val().trim()) {
 							mbc.tag('030 Пользователь указал номер телефона');
@@ -128,7 +129,7 @@ $(function () {
 							mbc.tag('031 Пользователь не указал номер телефона');
 						}
 					}
-				});
+				});*/
 			},
 			init: function () {
 				/*this.form.each(function () {
@@ -140,9 +141,10 @@ $(function () {
 					});
 				});*/
 
-				if (this.inputPhone.length) {
-					this.phone.init();
-				}
+				this.inputPhone = new Cleave('.js-input_set_geo', {
+					phone: true,
+					phoneRegionCode: this.geo
+				});
 
 				this.events();
 			}

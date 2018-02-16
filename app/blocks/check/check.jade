@@ -11,3 +11,14 @@ mixin check(name, value, isRadio)
 				.check__checker
 			.check__title
 				block
+
+mixin check-label(name, value, isCheck)
+
+	- id = 'check-'+name+'-'+value
+	- type = isCheck?'checkbox':'radio'
+
+	+b.check-label&attributes(attributes)
+		input.check-label__input(type=type id=id  value=value name=name class=isCheck?'js-check':'js-radio' required)
+		label.check-label__label(for=id)
+			span
+				block

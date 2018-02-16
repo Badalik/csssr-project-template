@@ -13,11 +13,6 @@ doctype html
 html
 	include ../head/head
 	+page(class=pageMod ? '_' + pageMod : '')
-		if production
-			<!-- Google Tag Manager (noscript) -->
-			noscript
-				| <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVKV4L" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-			<!-- End Google Tag Manager (noscript) -->
 		#js-wrapper.grid__wrapper
 			+header()
 			#js-content.grid__content
@@ -32,8 +27,6 @@ html
 			block scripts
 			+scripts([
 				'https://cdn.mobi.club/js/sdk.min.js',
-				'/_common/sms-link2.js',
-				root + 'scripts/main.js',
 				root + 'scripts/app.js'
 			])
 		else

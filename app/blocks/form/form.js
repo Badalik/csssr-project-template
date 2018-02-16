@@ -1,19 +1,20 @@
 import $ from 'jquery';
 import 'jquery-validation';
-import {IntlTelInput} from '../intl-tel-input/intl-tel-input';
+import Cleave from 'cleave.js';
+import 'cleave.js/dist/addons/cleave-phone.us.js';
+import {Tabs} from '../tabs/tabs';
 
 class Form {
 	constructor() {
 		this.wrapper = $('.js-forms');
 		this.form = this.wrapper.find('.js-form');
-		this.flowForm = this.wrapper.find('.js-flow-form');
-		this.inputPhone = this.wrapper.find('.js-input_set_geo');
-		this.phone = new IntlTelInput(this.inputPhone);
+		this.geo = typeof geo !== 'undefined' ? geo : '';
+		this.tabs = new Tabs(this.wrapper.find('.js-forms-tabs'));
 	}
 	events() {
 		const form = this;
 
-		this.flowForm.on('submit', function () {
+		/*this.flowForm.on('submit', function () {
 			if ($(this).find(form.inputPhone).length) {
 				if (form.phone.input.val().trim()) {
 					mbc.tag('030 Пользователь указал номер телефона');
@@ -26,7 +27,7 @@ class Form {
 					mbc.tag('031 Пользователь не указал номер телефона');
 				}
 			}
-		});
+		});*/
 
 		/*this.form.on('submit', function (e) {
 			e.preventDefault();
@@ -68,7 +69,12 @@ class Form {
 				}
 			});
 		});*/
-		this.phone.init();
+
+		/*this.inputPhone = new Cleave('.js-input_set_geo', {
+			phone: true,
+			phoneRegionCode: this.geo
+		});*/
+
 		this.events();
 	}
 	formRecord(form) {
