@@ -18,8 +18,7 @@ mixin form(form)
 			.form__title {{Enter your phone number}}
 			.form__items
 				.form__item
-					.form__item-label.js-form-error(style='display:none;') {{Your phone is incorrect!}}
-					.form__item-label.js-form-error-already(style='display:none;') {{Подписка на данный номер уже существует}}
+					.form__item-label.js-form-error(data-phone-error='{{Your phone is incorrect!}}' data-phone-error-exist='{{Подписка на данный номер уже существует}}' style='display:none;')
 					+input().js-input_set_geo(type='tel' id="phone" name='msisdn')
 			.form__button
 				+button('button')._full(type='submit') {{Get access}}
@@ -44,7 +43,7 @@ mixin form(form)
 			.form__message
 			.form__title Сеанс окончен!
 			.form__instruction
-				| {{Отправьте SMS с кодом}} #[code {{Текст сообщения click2sms}} #[span.mobico-token]] {{на номер}} #[code {{Короткий номер click2sms}}]
+				| {{Отправьте SMS с кодом}} #[code.mbc-message {{333}}] {{на номер}} #[code.mbc-shortcode {{745}}]
 			.form__text.form__text_mr_0
 				+button('a').mbc-click2sms(href='#') {{Отправить SMS}}
 		+flow()#layer_code
