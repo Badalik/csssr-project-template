@@ -7,9 +7,9 @@ mixin check(name, value, isRadio)
 	+b.check
 		input.check__input(type=type id=id name=name value=value)&attributes(attributes)
 		label.check__label(for=id)
-			.check__checker-wrapper
-				.check__checker
-			.check__title
+			span.check__checker-wrapper
+				span.check__checker
+			span.check__title
 				block
 
 mixin check-label(name, value, isCheck)
