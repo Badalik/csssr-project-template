@@ -24,6 +24,8 @@ mixin form(form)
 				+button('button')._full(type='submit') {{Get access}}
 			.form__text
 				| {{Your phone number will be used as login to get unlimited access to the service}}
+			.form__text
+				+check('terms-check').js-terms-checkbox {{Прочитал и согласен с}} #[a(href="http://terms.mobico.club/?id=106050&content=terms" target="_blank") {{Правилами использования}}]
 		+flow()#layer_age
 			.form__title {{Please enter your age!}}
 			.form__items
