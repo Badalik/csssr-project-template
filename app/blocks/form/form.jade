@@ -43,7 +43,7 @@ mixin form(form)
 				+button('button')._full(type='submit') {{Next}}
 		+flow(true)#layer_instruction
 			.form__message
-			.form__title Сеанс окончен!
+			.form__title {{Чтобы получить гороскоп вам необходимо}}
 			.form__instruction
 				| {{Отправьте SMS с кодом}} #[code.mbc-message {{333}}] {{на номер}} #[code.mbc-shortcode {{745}}]
 			.form__text.form__text_mr_0
