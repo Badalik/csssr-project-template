@@ -76,7 +76,8 @@ $(function () {
 
 		this.Tabs = function (wrapper) {
 			this.index = 0;
-			this.tab = wrapper.children();
+			this.wrapper = wrapper instanceof jQuery ? wrapper : $(wrapper);
+			this.tab = this.wrapper.children();
 			this.length = this.tab.length;
 			this.tabActCl = 'tab_state_active';
 		};
@@ -89,17 +90,22 @@ $(function () {
 				} else if (this.index < this.length - 1) {
 					this.tab.eq(this.index).removeClass(this.tabActCl).next().addClass(this.tabActCl);
 					this.index++;
-				}
-
-				if (this.index === this.length - 1) {
+				} else {
 					this.onTabsEnd();
 				}
 
+				if (this.index === this.length - 1) {
+					this.index++;
+					this.onTabsLast();
+				}
+
 				if (this.index + 1 === this.length - 1) {
-					this.onTabsPreEnd();
+					this.onTabsPreLast();
 				}
 			},
-			onTabsPreEnd: function () {
+			onTabsPreLast: function () {
+			},
+			onTabsLast: function () {
 			},
 			onTabsEnd: function () {
 			}
