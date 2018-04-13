@@ -20,7 +20,6 @@ class Tabs {
 		}
 
 		if (this.index === this.length - 1) {
-			this.index++;
 			this.onTabsLast();
 		}
 
