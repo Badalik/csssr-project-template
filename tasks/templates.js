@@ -14,7 +14,9 @@ import staticHash from 'gulp-static-hash';
 
 const data = {
 	getData: getData('app/data'),
-	jv0: 'javascript:void(0);'
+	jv0: 'javascript:void(0);',
+	// dev-mode variable for using in jade
+	__DEV__: process.env.NODE_ENV !== 'production'
 };
 
 gulp.task('templates', () => (
@@ -24,7 +26,7 @@ gulp.task('templates', () => (
 		.pipe(gulpIf(global.watch, inheritance({basedir: 'app'})))
 		.pipe(filter(file => /app[\\\/]pages/.test(file.path)))
 		.pipe(jade({basedir: 'app', data}))
-		.pipe(gulpIf(process.env.PRETTIFY !== false, prettify({
+		.pipe(gulpIf(process.env.PRETTIFY !== 'false', prettify({
 			braceStyle: 'expand',
 			indentWithTabs: true,
 			indentInnerHtml: true,
