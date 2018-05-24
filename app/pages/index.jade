@@ -1,10 +1,9 @@
 extends /blocks/layout-default/layout-default
 include ../blocks/container/container
-include ../blocks/list/list
 
 block head
-	- var pageTitle = 'CSSSR Project Template';
-	- var pageMod = 'center';
+	- var pageTitle = 'Nahil Horoscope';
+	- var pageMod = 'mod_1';
 
 block scripts
 	+scripts([
@@ -17,6 +16,3 @@ block scripts
 
 block content
 	+container()
-		+list([
-			['Главная cтраница', 'main.html']
-		])
