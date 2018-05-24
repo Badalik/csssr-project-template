@@ -4,7 +4,7 @@ import gulp from 'gulp';
 gulp.task('styles:dependencies', () => (
 	runSequence(
 		'sprites',
-		'icons',
+		// 'icons',
 		'styles'
 	)
 ));
