@@ -6,9 +6,7 @@
 	padding-top 13px
 	padding-bottom 13px
 	width 100%
-	font-size 16px
-	line-height 1.2
-	text-align center
+	background-color rgba(#000, .9)
 	+at('l')
 		padding-top 12px
 		padding-bottom 12px
@@ -20,25 +18,5 @@
 	+below($m-width)
 		padding-top 5px
 
-	.page_mod_1 &
-		color #979797
-		background-color rgba($bg, .9)
-
-	.page_mod_2 &
-		color #c1a2db
-		background-color rgba($bg2, .9)
-
-	&_fixed
+	&.footer_fixed
 		position fixed
-
-	a
-		text-decoration none
-
-		.page_mod_1 &
-			color #979797
-
-		.page_mod_2 &
-			color #c1a2db
-
-		&:hover
-			text-decoration underline

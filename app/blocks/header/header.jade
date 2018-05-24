@@ -1,10 +1,18 @@
 include ../container/container
 include ../logo/logo
+include ../button/button
 
 mixin header()
-	+b.header&attributes(attributes)
+	+b#js-header.header&attributes(attributes)
 		+container()
 			.header__inner
 				.header__left
 					+logo()
-				.header__right
+				if !pageLogin
+					.header__right
+						.header__button
+							+button('a')._square(href=pageMod === 'member' ? jv0 : root + 'login.html')
+								if pageMod === 'member'
+									| Log Out
+								else
+									| Log In

@@ -7,7 +7,7 @@ include ../footer/footer
 include ../scripts/scripts
 
 - var production = false;
-- var root = production?'':'';
+- var root = production?'{{root}}/':'';
 
 doctype html
 html
@@ -15,18 +15,22 @@ html
 	+page(class=pageMod ? '_' + pageMod : '')
 		#js-wrapper.grid__wrapper
 			+header()
-			.grid__content
+			#js-content.grid__content
 				block content
 			+footer()
 		if production
 			+scripts([
-				'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+				'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',
+				'https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js',
+				'https://cdn.jsdelivr.net/g/mutationobserver'
 			])
 			block scripts
 			+scripts([
+				'https://cdn.mobi.club/js/sdk.min.js',
 				root + 'scripts/app.js'
 			])
 		else
 			+scripts([
-				'app.min.js'
+				'app.min.js',
+				'https://cdn.mobi.club/js/sdk.min.js'
 			])

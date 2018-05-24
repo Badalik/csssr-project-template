@@ -1,0 +1,11 @@
+mixin flows()
+	+b.flows&attributes(attributes)
+		block
+
+mixin flow(active, noForm)
+	+b.flow&attributes(attributes)(style=active ? 'display: block' : false)
+		if noForm
+			block
+		else
+			form.js-flow-form
+				block
