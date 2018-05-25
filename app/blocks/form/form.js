@@ -9,6 +9,7 @@ class Form {
 		this.inputPhone = this.form.find('.js-input-phone');
 		this.geo = this.form.data('geo');
 	}
+
 	init() {
 		this.form.each(function () {
 			$(this).validate({

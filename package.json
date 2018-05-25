@@ -102,6 +102,7 @@
     "jade-get-data": "^1.0.0",
     "jade-injected": "^1.0.2",
     "jquery": "^2.1.4",
+    "jquery-validation": "^1.17.0",
     "merge-stream": "^1.0.0",
     "mutationobserver-shim": "^0.3.2",
     "node-notifier": "^4.3.1",
