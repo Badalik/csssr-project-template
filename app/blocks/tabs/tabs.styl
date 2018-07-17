@@ -1,0 +1,30 @@
+.tabs
+	position relative
+
+.tab
+	position absolute
+	top 0
+	left 0
+	margin -1px
+	visibility hidden
+	clip rect(0, 0, 0, 0)
+	width 1px
+	height 1px
+	pointer-events none
+	opacity 0
+	transform translateZ(0)
+	transition .2s ease-out 0s
+	transition-property visibility, opacity
+	backface-visibility hidden
+	will-change visibility, opacity
+
+	&_state_active
+		position relative
+		z-index 1
+		margin 0
+		visibility visible
+		clip auto
+		width auto
+		height auto
+		pointer-events auto
+		opacity 1
