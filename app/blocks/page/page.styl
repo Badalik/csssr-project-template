@@ -22,13 +22,13 @@ html
 		background-repeat no-repeat
 		background-position center
 		background-size cover
-		+above($p-width)
+		+above($p-width - 1)
 			background-image url(../images/bg.jpg)
 		+below('m')
 			background-image url(../images/bg_m.jpg)
-		@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-width: 767px) and (min--moz-device-pixel-ratio: 2), only screen and (max-width: 767px) and (-o-min-device-pixel-ratio: 2/1), only screen and (max-width: 767px) and (min-device-pixel-ratio: 2), only screen and (max-width: 767px) and (min-resolution: 192dpi), only screen and (max-width: 767px) and (min-resolution: 2dppx)
-			background-image url(../images/bg_m@2x.jpg)
-			background-image image-set(url(../images/bg_m.jpg) 1x, url(../images/bg_m@2x.jpg) 2x)
+			+retina()
+				background-image url(../images/bg_m@2x.jpg)
+				background-image image-set(url(../images/bg_m.jpg) 1x, url(../images/bg_m@2x.jpg) 2x)
 
 		.page_center &
 

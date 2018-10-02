@@ -13,11 +13,11 @@ doctype html
 html
 	include ../head/head
 	+page(class=pageMod ? '_' + pageMod : '')
-		#js-wrapper.grid__wrapper
+		.grid__wrapper.js-wrapper
 			+header()
 			.grid__content
 				block content
-			+footer()
+			+footer().js-footer
 		if production
 			+scripts([
 				'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'

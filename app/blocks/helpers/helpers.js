@@ -2,8 +2,8 @@
 
 class Height {
 	constructor() {
-		this.wrapper = document.getElementById('js-wrapper');
-		this.bottom = document.getElementById('js-footer');
+		this.wrapper = document.getElementsByClassName('js-wrapper')[0];
+		this.bottom = document.getElementsByClassName('js-footer')[0];
 	}
 
 	events() {
