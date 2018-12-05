@@ -1,8 +1,8 @@
 mixin form(form)
 
-	+b.form&attributes(attributes)
-		if form
-			form.js-form&attributes(attributes)(action='' method='post')
-				block
-		else
+	if form
+		+b('form').form&attributes(attributes)(action='' method='post')
+			block
+	else
+		+b.form&attributes(attributes)
 			block
