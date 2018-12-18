@@ -18,7 +18,7 @@ class Height {
 	}
 
 	padding() {
-		if (this.wrapper !== null && this.bottom !== null) {
+		if (typeof this.wrapper !== 'undefined' && typeof this.bottom !== 'undefined') {
 			this.wrapper.style.paddingBottom = this.bottom.offsetHeight + 'px';
 		}
 	}
